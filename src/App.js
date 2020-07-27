@@ -11,19 +11,20 @@ import Apps from '@material-ui/icons/Apps';
 import logo from './logo.svg';
 import './App.css';
 
+// 1. need to create new styles
 const useStyles = makeStyles({
-  logo: {
+  logo: { // 2. need to come up with naming
     width: '3rem',
     height: '3rem',
   },
-  toolbar: {
+  toolbar: { // 3. styles is hard to be reused
     justifyContent: 'space-between',
   },
   avatarBtn: {
     padding: '0.25rem',
     marginLeft: '0.25rem',
   },
-  wrapper: { // I need to come up with a name here
+  wrapper: {
     display: 'flex',
     alignItems: 'center',
   },
@@ -35,6 +36,7 @@ const useStyles = makeStyles({
 
 function App() {
   const classes = useStyles();
+  // 4. code is longer and hard to abstract out
   return (
     <StylesProvider injectFirst>
       <AppBar position={'relative'} color={'default'} elevation={0}>
