@@ -1,79 +1,58 @@
-import React from 'react';
-import { StylesProvider, makeStyles } from '@material-ui/core/styles'
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Divider from '@material-ui/core/Divider';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from "@material-ui/core/Typography";
+import React from "react";
+import {
+  StylesProvider,
+  ThemeProvider,
+  createMuiTheme,
+} from "@material-ui/core/styles";
+import { colors } from "tailwindcss/defaultTheme";
+import Add from "@material-ui/icons/AddRounded";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
-import Apps from '@material-ui/icons/Apps';
-import logo from './logo.svg';
-import './App.css';
+import MuiLogo from "./components/MuiLogo";
+import TailwindLogo from "./components/TailwindLogo";
 
-// 1. need to create new styles
-const useStyles = makeStyles({
-  logo: { // 2. need to come up with naming
-    width: '3rem',
-    height: '3rem',
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: colors.gray[700],
+    },
+    grey: colors.gray,
   },
-  toolbar: { // 3. styles is hard to be reused
-    justifyContent: 'space-between',
+  typography: {
+    fontFamily: "Rubik, san-serif",
   },
-  avatarBtn: {
-    padding: '0.25rem',
-    marginLeft: '0.25rem',
-  },
-  wrapper: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: '1.5rem',
-    fontWeight: 'bold',
-  }
 });
 
+const logoFontSize = "clamp(72px, 128px + 10vw, 300px)";
+
 function App() {
-  const classes = useStyles();
-  // 4. code is longer and hard to abstract out
   return (
     <StylesProvider injectFirst>
-      <AppBar position={'relative'} color={'default'} elevation={0}>
-        <Toolbar className={classes.toolbar}>
-          <div className={classes.wrapper}>
-            <img src={logo} className={`App-logo ${classes.logo}`} alt="logo" />
-            <Typography variant="h1" color="primary" className={classes.title}>Material-UI</Typography>
-          </div>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <div className="h-screen bg-gray-200 flex justify-center items-center">
           <div>
-            <IconButton>
-              <Apps />
-            </IconButton>
-            <IconButton className={classes.avatarBtn}>
-              <Avatar>BM</Avatar>
-            </IconButton>
+            <div className="flex flex-col sm:flex-row items-center sm:gap-4 md:gap-8 lg:gap-12">
+              <MuiLogo fontSize={logoFontSize} />
+              <Add className="text-5xl md:text-6xl text-gray-600" />
+              <TailwindLogo fontSize={logoFontSize} />
+            </div>
+            <h1
+              className="mt-4 text-center font-bold text-primary-800"
+              style={{ fontSize: "clamp(24px, 16px + 2vw, 48px)" }}
+            >
+              Material-UI feat. Tailwind
+            </h1>
+            <h4
+              className="text-center text-primary-700"
+              style={{ fontSize: "clamp(16px, 12px + 2vw, 32px)" }}
+            >
+              Next level of building interface.
+            </h4>
           </div>
-        </Toolbar>
-      </AppBar>
-
-      <Divider />
-
-      <AppBar position={'relative'} color={'default'} elevation={0}>
-        <Toolbar className="justify-between">
-          <div className="flex items-center">
-            <img src={logo} className="App-logo h-12 w-12" alt="logo" />
-            <Typography variant="h1" className="text-2xl font-bold" color="primary">MUI Tailwind</Typography>
-          </div>
-          <div>
-            <IconButton>
-              <Apps />
-            </IconButton>
-            <IconButton className="p-1 ml-1">
-              <Avatar>BM</Avatar>
-            </IconButton>
-          </div>
-        </Toolbar>
-      </AppBar>
+        </div>
+        <div className="h-screen "></div>
+      </ThemeProvider>
     </StylesProvider>
   );
 }
