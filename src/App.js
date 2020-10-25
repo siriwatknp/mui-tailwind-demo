@@ -12,6 +12,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import MuiLogo from "./components/MuiLogo";
 import TailwindLogo from "./components/TailwindLogo";
 import Example1 from "./Example1/Example1";
+import Example1Tailwind from "./Example1/Example1.tailwind";
 
 import "./App.css";
 
@@ -26,7 +27,7 @@ const createTheme = (isDark) =>
       text: {
         primary: colors.gray[900],
         secondary: colors.gray[600],
-      }
+      },
     },
     typography: {
       fontFamily: "Rubik, san-serif",
@@ -64,7 +65,20 @@ function App() {
             </div>
           </div>
           <div className="h-screen bg-gray-300 flex justify-center items-center">
-            <Example1 />
+            <div className="max-w-4xl">
+              <Example1 />
+              <caption className="text-sm block mt-10 text-gray-600 font-semibold">
+                Pure Material-UI
+              </caption>
+            </div>
+          </div>
+          <div className="h-screen bg-gray-300 flex justify-center items-center">
+            <div className="max-w-4xl">
+              <Example1Tailwind />
+              <caption className="text-sm block mt-10 text-gray-600 font-semibold">
+                Material-UI + Tailwind
+              </caption>
+            </div>
           </div>
         </div>
       </ThemeProvider>

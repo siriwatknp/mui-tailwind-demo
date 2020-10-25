@@ -13,6 +13,9 @@ versions
 }
 ```
 
+## Why Tailwind
+- 
+
 ## Get started
 
 ```
@@ -27,3 +30,4 @@ yarn install & yarn start
 - `yarn start` will compile `tailwind.dev.css` to `tailwind.css` which is imported in `index.js`
 - `NODE_ENV=production` in build script is important to make tailwind purge css (see `tailwind.config.js`)
 - Recommend to use VSCode with Tailwind CSS IntelliSense extension (from Brad Cornes)
+- font family uses `Rubik` (setup in `tailwind.config.js` and `App.js`)

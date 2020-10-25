@@ -22,7 +22,7 @@ module.exports = {
     extend: {
       colors: {
         primary: theme.colors.gray
-      }
+      },
     },
   },
   variants: {},
