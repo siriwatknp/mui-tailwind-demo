@@ -23,6 +23,10 @@ const createTheme = (isDark) =>
       },
       grey: colors.gray,
       type: isDark ? "dark" : "light",
+      text: {
+        primary: colors.gray[900],
+        secondary: colors.gray[600],
+      }
     },
     typography: {
       fontFamily: "Rubik, san-serif",
@@ -59,7 +63,7 @@ function App() {
               </h4>
             </div>
           </div>
-          <div className="h-screen bg-gray-300 flex items-center jusity-center">
+          <div className="h-screen bg-gray-300 flex justify-center items-center">
             <Example1 />
           </div>
         </div>
